@@ -1,0 +1,31 @@
+<div class="col-md-6">
+    <h2> Lista Clientes</h2>
+    <td>
+        <button class="btn btn-danger" (click)="addClient()"> Crear Cliente</button>
+    </td>
+    <td>
+        <button class="btn btn-danger" (click)="kpiClient()"> KPI Clientes</button>
+    </td>
+    <td>
+        <button class="btn btn-danger" (click)="projectionClient()"> Proyección y Analisis Clientes</button>
+    </td>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Edad</th>
+        <th>Fecha Nacimiento</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let client of clients">
+        <td>{{client.firstName}}</td>
+        <td>{{client.lastName}}</td>
+        <td>{{client.age}}</td>
+        <td>{{(client.birthDate * 1000) | date:'yyyy-MM-dd'}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+      

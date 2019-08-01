@@ -1,0 +1,21 @@
+<div class="col-md-6">
+        <h2> Kpi Clientes</h2>
+        <td>
+            <button class="btn btn-danger" (click)="return()"> Retornar</button>
+        </td>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th>Kpi</th>
+            <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let kpi of kpis">
+            <td>{{kpi.name}}</td>
+            <td>{{kpi.value}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+          

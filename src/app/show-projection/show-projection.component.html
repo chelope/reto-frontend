@@ -1,0 +1,27 @@
+<div class="col-md-6">
+        <h2> Proyeccion y Analisis Clientes</h2>
+        <td>
+            <button class="btn btn-danger" (click)="return()"> Retornar</button>
+        </td>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Fecha Nacimiento</th>
+            <th>Fecha Probable Muerte</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let client of clients">
+            <td>{{client.firstName}}</td>
+            <td>{{client.lastName}}</td>
+            <td>{{client.age}}</td>
+            <td>{{(client.birthDate * 1000) | date:'yyyy-MM-dd'}}</td>
+            <td>{{(client.probableDeathDate * 1000) | date:'yyyy-MM-dd'}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+          
