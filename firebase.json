@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "dist/promart-frontend",
     "ignore": [
       "firebase.json",
       "**/.*",

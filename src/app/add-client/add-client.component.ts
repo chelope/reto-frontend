@@ -16,19 +16,24 @@ export class AddClientComponent implements OnInit {
 
   addForm: FormGroup;
   
+  onSubmit() {
+    if (this.addForm.invalid) {
+      return;
+    }
+    var newClient = this.addForm.value;
+    newClient.birthDate = new Date(newClient.birthDate).getTime() / 1000;
+    this.clientService.createClient(newClient)
+      .subscribe( data => {
+        this.router.navigate(['list-client']);
+      });
+  }
+
   ngOnInit() {
     this.addForm = this.formBuilder.group({      
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       birthDate: ['', Validators.required]
     });
-  }
-
-  onSubmit() {
-    this.clientService.createClient(this.addForm.value)
-      .subscribe( data => {
-        this.router.navigate(['list-client']);
-      });
   }
 }
 

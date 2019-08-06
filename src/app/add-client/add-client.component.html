@@ -1,20 +1,35 @@
 <div class="col-md-6">
     <h2 class="text-center">Crear Cliente</h2>
-    <form [formGroup]="addForm" (ngSubmit)="onSubmit()" ng-controller="clientCtrl">
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()" novalidate>
            
         <div class="form-group">
             <label for="firstName">Nombre:</label>
             <input formControlName="firstName" placeholder="Nombre" name="firstName" class="form-control" id="firstName">
+        </div>
+        <div *ngIf="addForm.controls['firstName'].invalid && (addForm.controls['firstName'].dirty || addForm.controls['firstName'].touched)">
+            <div *ngIf="addForm.controls['firstName'].errors.required" class="error">
+                Nombre es requerido.
+            </div>
         </div>
     
         <div class="form-group">
             <label for="lastName">Apellido:</label>
             <input formControlName="lastName" placeholder="Apellido" name="lastName" class="form-control" id="lastName"  uppercase>
         </div>
+        <div *ngIf="addForm.controls['lastName'].invalid && (addForm.controls['lastName'].dirty || addForm.controls['lastName'].touched)">
+            <div *ngIf="addForm.controls['lastName'].errors.required" class="error">
+                Apellido es requerido.
+            </div>
+        </div>
 
         <div class="form-group">
-                <label for="birthDate">Fecha de Nacimiento (Epoch Seconds):</label>
-                <input formControlName="birthDate" placeholder="Fecha Nacimiento"  name="birthDate" class="form-control" id="birthDate">
+                <label for="birthDate">Fecha de Nacimiento:</label>
+                <input formControlName="birthDate" placeholder="Fecha Nacimiento"  name="birthDate" class="form-control" type = "date" id="birthDate" required>
+        </div>
+        <div *ngIf="addForm.controls['birthDate'].invalid && (addForm.controls['birthDate'].dirty || addForm.controls['birthDate'].touched)">
+            <div *ngIf="addForm.controls['birthDate'].errors.required" class="error">
+                Fecha de Nacimiento es requerido.
+            </div>
         </div>
     
         <button class="btn btn-success" type="submit">Crear</button>
